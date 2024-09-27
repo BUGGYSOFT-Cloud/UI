@@ -1,14 +1,17 @@
 // src/components/LandingPage.js
 import React from "react";
-import "./LandingPage.css"; // Import the CSS file
+import { Link } from 'react-router-dom';
+import "./LandingPage.css";
 
 const LandingPage = () => {
   return (
     <div className="landing-page">
       <nav className="navbar">
-        <h1 className="logo">Job Search</h1>
+        <div className="logo">
+          <Link to="/">Job Search</Link>
+        </div>
         <div className="login-icon">
-          <a href="/login">Login</a>
+          <Link to="/login">Login</Link>
         </div>
       </nav>
       <div className="hero-section">
