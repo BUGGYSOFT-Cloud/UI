@@ -1,3 +1,4 @@
+/* src/components/CreateAccount/CreateAccount.js */
 import React, { useState } from "react";
 import "./CreateAccount.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -45,26 +46,26 @@ const CreateAccount = () => {
       </nav>
       <form className="account-form" onSubmit={handleSubmit}>
         <div className="name-section">
-            <div className="name-field">
-                <label htmlFor="firstName">First Name</label>
-                <input
-                type="text"
-                id="firstName"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                placeholder="Enter your first name"
-                />
-            </div>
-            <div className="name-field">
-                <label htmlFor="lastName">Last Name</label>
-                <input
-                type="text"
-                id="lastName"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                placeholder="Enter your last name"
-                />
-            </div>
+          <div className="name-field">
+            <label htmlFor="firstName">First Name</label>
+            <input
+              type="text"
+              id="firstName"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              placeholder="Enter your first name"
+            />
+          </div>
+          <div className="name-field">
+            <label htmlFor="lastName">Last Name</label>
+            <input
+              type="text"
+              id="lastName"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              placeholder="Enter your last name"
+            />
+          </div>
         </div>
 
         <label htmlFor="username">Username</label>
@@ -98,7 +99,9 @@ const CreateAccount = () => {
       </form>
       <div className="login-section">
         <p>Already have an account?</p>
-        <Link to="/login"><button>Login</button></Link>
+        <Link to="/login">
+          <button>Login</button>
+        </Link>
       </div>
     </div>
   );

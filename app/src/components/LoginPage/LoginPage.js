@@ -1,4 +1,4 @@
-// src/components/LoginPage.js
+// src/components/LoginPage/LoginPage.js
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./LoginPage.css";
@@ -10,7 +10,7 @@ const LoginPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // TODO: Some code to handle the form submission!
-    
+
     console.log("Submitted", account, passcode);
   };
 
@@ -18,7 +18,7 @@ const LoginPage = () => {
     <div className="login-page">
       <nav className="navbar">
         <div className="logo">
-            <Link to="/">Job Search</Link>
+          <Link to="/">Job Search</Link>
         </div>
         <div className="login-icon">
           <Link to="/login">Login</Link>
@@ -47,7 +47,9 @@ const LoginPage = () => {
       </form>
       <div className="signup-section">
         <p>Don't have an account?</p>
-        <Link to="/signup"><button>Create one</button></Link>
+        <Link to="/signup">
+          <button>Create one</button>
+        </Link>
       </div>
     </div>
   );
