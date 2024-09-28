@@ -9,8 +9,6 @@ const LoginPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // TODO: Some code to handle the form submission!
-
     console.log("Submitted", account, passcode);
   };
 
@@ -24,32 +22,38 @@ const LoginPage = () => {
           <Link to="/login">Login</Link>
         </div>
       </nav>
-      <form className="login-form" onSubmit={handleSubmit}>
-        <label htmlFor="account">Account</label>
-        <input
-          type="text"
-          id="account"
-          value={account}
-          onChange={(e) => setAccount(e.target.value)}
-          placeholder="Enter your account"
-        />
+      <div className="login-container">
+        <h2 className="Head">Login</h2>
+        <p className="Subhead">Welcome back! Please login to your account.</p>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <label htmlFor="account" className="Prompt">Account</label>
+          <input
+            type="text"
+            id="account"
+            value={account}
+            onChange={(e) => setAccount(e.target.value)}
+            placeholder="Enter your account"
+            className="inputField"
+          />
 
-        <label htmlFor="passcode">Passcode</label>
-        <input
-          type="password"
-          id="passcode"
-          value={passcode}
-          onChange={(e) => setPasscode(e.target.value)}
-          placeholder="Enter your passcode"
-        />
+          <label htmlFor="passcode" className="Prompt">Passcode</label>
+          <input
+            type="password"
+            id="passcode"
+            value={passcode}
+            onChange={(e) => setPasscode(e.target.value)}
+            placeholder="Enter your passcode"
+            className="inputField"
+          />
 
-        <button type="submit">Login</button>
-      </form>
-      <div className="signup-section">
-        <p>Don't have an account?</p>
-        <Link to="/signup">
-          <button>Create one</button>
-        </Link>
+          <button type="submit">Login</button>
+        </form>
+        <div className="signup-section">
+          <p>Don't have an account?</p>
+          <Link to="/signup">
+            <button>Create one</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

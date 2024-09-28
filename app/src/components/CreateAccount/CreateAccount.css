@@ -1,10 +1,18 @@
 /* src/components/CreateAccount/CreateAccount.css */
 .create-account-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   height: 100vh;
   background: #f5f5f5;
 }
+
 .navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,12 +21,29 @@
   color: white;
 }
 
+.create-account-container {
+  background-color: white;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 330px;
+  width: 90%; /* Responsive width */
+}
+
+.create-account-container button {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 .account-form {
   display: flex;
   flex-direction: column;
-  max-width: 350px;
   margin: auto;
-  padding: 20px;
 }
 
 .account-form label {
@@ -39,9 +64,12 @@
 
 .name-field {
   flex: 1;
+  width: 50px;
   margin-right: 10px;
 }
+
 .name-field:last-child {
+  flex: 1;
   margin-right: 0;
 }
 

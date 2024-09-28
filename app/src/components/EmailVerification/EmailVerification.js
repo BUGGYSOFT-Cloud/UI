@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./EmailVerification.css";
 
 const EmailVerification = () => {
@@ -19,6 +19,14 @@ const EmailVerification = () => {
 
   return (
     <div className="email-verification-page">
+      <nav className="navbar">
+        <div className="logo">
+          <Link to="/">Job Search</Link>
+        </div>
+        <div className="login-icon">
+          <Link to="/login">Login</Link>
+        </div>
+      </nav>
       <div className="verification-container">
         <h2>Email Verification</h2>
         <p>Please enter the verification code sent to your email address:</p>
