@@ -61,12 +61,3 @@
   cursor: pointer;
   text-decoration: underline;
 }
-
-.inputField {
-  padding: 15px; /* Increased padding */
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 20px; /* Larger font size */
-  width: 100%; /* Ensures the input takes full width */
-}

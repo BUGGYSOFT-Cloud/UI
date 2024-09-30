@@ -26,23 +26,27 @@ const LoginPage = () => {
         <h2 className="Head">Login</h2>
         <p className="Subhead">Welcome back! Please login to your account.</p>
         <form className="login-form" onSubmit={handleSubmit}>
-          <label htmlFor="account" className="Prompt">Account</label>
+          <label htmlFor="account" className="Prompt">
+            Email
+          </label>
           <input
             type="text"
             id="account"
             value={account}
             onChange={(e) => setAccount(e.target.value)}
-            placeholder="Enter your account"
+            placeholder="Enter your email"
             className="inputField"
           />
 
-          <label htmlFor="passcode" className="Prompt">Passcode</label>
+          <label htmlFor="password" className="Prompt">
+            Password
+          </label>
           <input
             type="password"
             id="passcode"
             value={passcode}
             onChange={(e) => setPasscode(e.target.value)}
-            placeholder="Enter your passcode"
+            placeholder="Enter your password"
             className="inputField"
           />
 

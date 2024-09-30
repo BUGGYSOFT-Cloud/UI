@@ -50,27 +50,32 @@
   margin-bottom: 5px;
 }
 
-.account-form input {
+.account-form input,
+.account-form select {
   margin-bottom: 10px;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 100%; /* Make input/select take full width */
 }
 
 .name-section {
   display: flex;
   justify-content: space-between;
+  gap: 25px;
 }
 
 .name-field {
   flex: 1;
-  width: 50px;
-  margin-right: 10px;
 }
 
-.name-field:last-child {
-  flex: 1;
-  margin-right: 0;
+.gender-section {
+  margin-top: 10px;
+  text-align: middle;
+}
+
+.gender-section select {
+  width: 100%; /* Make the select element take full width */
 }
 
 .login-section {

@@ -6,9 +6,10 @@ import { Link, useNavigate } from "react-router-dom";
 const CreateAccount = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [gender, setGender] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -20,6 +21,21 @@ const CreateAccount = () => {
       return;
     }
 
+    if (!gender) {
+      alert("Please enter your gender.");
+      return;
+    }
+
+    if (!password) {
+      alert("Please enter your password.");
+      return;
+    }
+
+    if (!confirmPassword) {
+      alert("Please confirm your password.");
+      return;
+    }
+
     // Validate password match
     if (password !== confirmPassword) {
       alert("Passwords do not match.");
@@ -28,7 +44,7 @@ const CreateAccount = () => {
 
     // Further validation here (e.g., password strength, username checks)
 
-    console.log("Account Created", username, password);
+    console.log("Account Created", email, password);
 
     // Redirect to the email verification page
     navigate("/email-verification");
@@ -69,14 +85,27 @@ const CreateAccount = () => {
               />
             </div>
           </div>
+          <div className="gender-section">
+            <label htmlFor="gender">Gender</label>
+            <select
+              id="gender"
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+            >
+              <option value="">Select your gender</option>
+              <option value="MALE">MALE</option>
+              <option value="FEMALE">FEMALE</option>
+              <option value="OTHER">OTHER</option>
+            </select>
+          </div>
 
-          <label htmlFor="username">Username</label>
+          <label htmlFor="email">Email</label>
           <input
             type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Choose a username"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Choose an email"
           />
 
           <label htmlFor="password">Password</label>
