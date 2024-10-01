@@ -107,7 +107,7 @@ const EmailVerification = () => {
 
           // Redirect to the homepage or another page, e.g., dashboard
           setTimeout(() => {
-            navigate("/");
+            navigate("/job-services");
           }, 1500);
         } else {
           const saveUserError = await saveUserResponse.text();

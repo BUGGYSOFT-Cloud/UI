@@ -50,7 +50,7 @@ const LoginPage = () => {
 
         // Redirect to the dashboard page or another protected page
         setTimeout(() => {
-          navigate("/"); // Adjust this path as needed
+          navigate("/job-services"); // Adjust this path as needed
         }, 2000); // Delay to let the success toast show
       } else {
         const errorText = await response.text(); // Retrieve error text from response
