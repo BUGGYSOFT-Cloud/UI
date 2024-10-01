@@ -1,5 +1,6 @@
 /* src/components/CreateAccount/CreateAccount.js */
 import React, { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 import "./CreateAccount.css";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -9,45 +10,88 @@ const CreateAccount = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [gender, setGender] = useState("");
+  const [gender, setGender] = useState(""); // New state for gender
   const navigate = useNavigate();
+  // const USER_SERVICE_API_URL = process.env.REACT_APP_USER_SERVICE_API_URL; // Get API URL from .env
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     // Validate first and last names
     if (!firstName.trim() || !lastName.trim()) {
-      alert("Please enter both your first and last names.");
+      toast.error("Please enter both your first and last names.");
       return;
     }
 
+    // Validate gender
     if (!gender) {
-      alert("Please enter your gender.");
+      toast.error("Please enter your gender.");
       return;
     }
 
-    if (!password) {
-      alert("Please enter your password.");
-      return;
-    }
-
-    if (!confirmPassword) {
-      alert("Please confirm your password.");
+    // Validate email format using a regular expression
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailPattern.test(email.trim())) {
+      toast.error("Please enter a valid email address.");
       return;
     }
 
     // Validate password match
     if (password !== confirmPassword) {
-      alert("Passwords do not match.");
+      toast.error("Passwords do not match.");
       return;
     }
 
-    // Further validation here (e.g., password strength, username checks)
+    // Prepare the data to be sent
+    const requestData = {
+      email: email.trim(),
+      password: password,
+      firstname: firstName.trim(),
+      lastname: lastName.trim(),
+      gender: gender,
+    };
+    try {
+      // Send POST request to backend API
+      const response = await fetch("/userapi/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestData),
+      });
 
-    console.log("Account Created", email, password);
+      // Check if the request was successful
+      if (response.ok) {
+        const result = await response.text();
+        console.log("Account Created Successfully:", result);
 
-    // Redirect to the email verification page
-    navigate("/email-verification");
+        // Store requestData in localStorage for use after verification
+        localStorage.setItem("pendingUser", JSON.stringify(requestData));
+        localStorage.setItem("allowEmailVerificationAccess", "true");
+
+        // Show success notification
+        toast.success(
+          "Registration successful! Please complete email verification."
+        );
+
+        // Redirect to the email verification page
+        setTimeout(() => {
+          navigate("/email-verification");
+        }, 2000); // Delay to let the success toast show
+      } else {
+        const errorText = await response.text(); // Retrieve error text from response
+        if (errorText === "User Already Exists!") {
+          toast.error("User Already Exists!");
+        } else {
+          toast.error(`Error: ${errorText || "Failed to create account"}`);
+        }
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error(
+        "An error occurred while creating the account. Please try again later."
+      );
+    }
   };
 
   return (
@@ -135,6 +179,7 @@ const CreateAccount = () => {
           </Link>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
