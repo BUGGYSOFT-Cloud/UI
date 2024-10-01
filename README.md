@@ -16,11 +16,9 @@ Ensure your development environment includes the following installed software:
 First, you need to clone the repository to your local machine. Open your command line or terminal and run the following commands:
 
 ```bash
-git clone https://your-repository-url-here.git
+git clone git@github.com:BUGGYSOFT-Cloud/UI.git
 cd your-project-directory
 ```
-
-Replace `https://your-repository-url-here.git` with the actual repository URL and `your-project-directory` with the name of the directory that you cloned the project into.
 
 ### Installing Dependencies
 
@@ -34,7 +32,7 @@ This will install all the necessary npm packages listed as dependencies in the `
 
 ### Environment Variables
 
-The project requires setting environment variables, such as the API URL for connecting to backend services. Create a file named `.env` in the project root directory and add the necessary environment variables:
+The project requires setting environment variables. Please create a file named `.env` in the project root directory and add the necessary environment variables:
 
 ```plaintext
 REACT_APP_API_URL=http://theUrl
