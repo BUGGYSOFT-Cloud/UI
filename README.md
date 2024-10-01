@@ -37,10 +37,7 @@ The project requires setting environment variables. Please create a file named `
 ```plaintext
 REACT_APP_API_URL=http://theUrl
 ```
-
-Please contact us for the url if needed!
-
-Replace `http://your-api-url-here.com` with the URL of your API service.
+For privacy reasons, the url is not shown here. Please contact us for the url if needed!
 
 ### Running the Project
 
