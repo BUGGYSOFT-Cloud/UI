@@ -17,7 +17,7 @@ First, you need to clone the repository to your local machine. Open your command
 
 ```bash
 git clone git@github.com:BUGGYSOFT-Cloud/UI.git
-cd your-project-directory
+cd UI/app/
 ```
 
 ### Installing Dependencies
